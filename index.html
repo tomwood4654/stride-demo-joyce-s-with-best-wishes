@@ -7,520 +7,377 @@
 <meta name="description" content="Local convenience store in Lingfield offering handmade chocolates, gifts and cards. Open Tuesday–Saturday. Delivery available. Call 01342 832428.">
 <style>
   :root {
-    --primary: #E63946;
-    --bg: #FFFBF7;
-    --text: #2B2D42;
-    --heading-font: 'Sohne', 'Helvetica Neue', Arial, sans-serif;
-    --body-font: 'Inter', Arial, sans-serif;
+    --primary: #D4AF37;
+    --bg: #FFFFFF;
+    --text: #2C2C2C;
   }
 
   * {
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
   }
 
-  html, body {
+  body {
+    margin: 0;
     background-color: var(--bg);
     color: var(--text);
-    font-family: var(--body-font);
+    font-family: 'Open Sans', Arial, sans-serif;
     line-height: 1.6;
-    scroll-behavior: smooth;
   }
 
-  h1, h2, h3, h4 {
-    font-family: var(--heading-font);
+  h1, h2, h3 {
+    font-family: Georgia, 'Times New Roman', serif;
     color: var(--text);
-    line-height: 1.2;
+    margin-top: 0;
   }
 
   a {
     color: var(--primary);
   }
 
-  img {
-    max-width: 100%;
-    display: block;
-  }
-
-  .container {
+  .site-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 24px;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 24px;
   }
 
-  /* Header */
-  header.site-header {
-    position: sticky;
-    top: 0;
-    z-index: 50;
+  header.top-bar {
+    border-bottom: 3px solid var(--primary);
+    padding: 16px 0;
     background-color: var(--bg);
-    border-bottom: 1px solid rgba(43,45,66,0.08);
   }
 
-  .nav-wrap {
+  .top-bar-inner {
+    grid-column: 1 / -1;
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    padding: 18px 24px;
-    max-width: 1200px;
-    margin: 0 auto;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
   }
 
-  .logo {
-    font-family: var(--heading-font);
-    font-weight: 700;
-    font-size: 1.25rem;
+  .brand {
+    font-family: Georgia, serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+  }
+
+  .brand span {
     color: var(--primary);
-    text-decoration: none;
-    letter-spacing: 0.2px;
   }
 
-  nav.primary-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 28px;
-  }
-
-  nav.primary-nav a {
+  nav.top-nav a {
     text-decoration: none;
     color: var(--text);
+    margin-left: 24px;
     font-weight: 600;
-    font-size: 0.95rem;
   }
 
-  nav.primary-nav a:hover {
+  nav.top-nav a:hover {
     color: var(--primary);
   }
 
-  /* Hero */
   .hero {
-    padding: 60px 24px;
-  }
-
-  .hero-grid {
-    max-width: 1200px;
-    margin: 0 auto;
+    grid-column: 1 / -1;
     display: grid;
-    grid-template-columns: 1.1fr 1fr;
-    gap: 48px;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 24px;
     align-items: center;
+    padding: 60px 0;
   }
 
-  .hero-content .eyebrow {
-    display: inline-block;
-    background-color: rgba(230,57,70,0.1);
+  .hero-text {
+    grid-column: 1 / span 6;
+  }
+
+  .hero-text h1 {
+    font-size: 2.6rem;
+    margin-bottom: 12px;
+  }
+
+  .hero-text .tagline {
+    font-size: 1.2rem;
     color: var(--primary);
-    font-weight: 700;
-    font-size: 0.8rem;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    padding: 6px 14px;
-    border-radius: 999px;
+    font-weight: 600;
     margin-bottom: 20px;
   }
 
-  .hero-content h1 {
-    font-size: 2.8rem;
-    margin-bottom: 16px;
+  .hero-image {
+    grid-column: 7 / span 6;
   }
 
-  .hero-content p.tagline {
-    font-size: 1.2rem;
-    color: var(--text);
-    opacity: 0.85;
-    margin-bottom: 28px;
-    max-width: 480px;
+  .hero-image img {
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 4px solid var(--primary);
+    display: block;
   }
 
   .btn {
     display: inline-block;
     background-color: var(--primary);
-    color: #fff;
+    color: #FFFFFF;
+    padding: 12px 28px;
     text-decoration: none;
     font-weight: 700;
-    padding: 14px 28px;
-    border-radius: 8px;
-    font-size: 0.95rem;
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
-    box-shadow: 0 6px 16px rgba(230,57,70,0.25);
+    border-radius: 4px;
+    margin-top: 10px;
   }
 
-  .btn:hover {
-    transform: translateY(-2px);
+  section {
+    grid-column: 1 / -1;
+    padding: 50px 0;
   }
 
-  .hero-image-wrap {
-    position: relative;
+  section.divider-top {
+    border-top: 1px solid #eee;
   }
 
-  .hero-image-wrap img {
+  .about-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 24px;
+    align-items: center;
+  }
+
+  .about-text {
+    grid-column: 1 / span 7;
+  }
+
+  .about-image {
+    grid-column: 8 / span 5;
+  }
+
+  .about-image img {
     width: 100%;
-    height: 420px;
+    height: 300px;
     object-fit: cover;
-    border-radius: 16px;
-    box-shadow: 0 20px 40px rgba(43,45,66,0.15);
-  }
-
-  /* Modular grid: offerings */
-  .offerings {
-    padding: 70px 24px;
-    background-color: #fff;
-    border-top: 1px solid rgba(43,45,66,0.06);
-    border-bottom: 1px solid rgba(43,45,66,0.06);
+    border-radius: 6px;
   }
 
   .section-heading {
     text-align: center;
-    max-width: 640px;
-    margin: 0 auto 48px auto;
+    margin-bottom: 40px;
   }
 
   .section-heading h2 {
     font-size: 2rem;
-    margin-bottom: 12px;
-  }
-
-  .section-heading p {
-    opacity: 0.8;
-  }
-
-  .offerings-grid {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
-  }
-
-  .offer-card {
-    background-color: var(--bg);
-    border: 1px solid rgba(43,45,66,0.08);
-    border-radius: 14px;
-    padding: 28px 22px;
-    text-align: left;
-  }
-
-  .offer-card .mark {
-    width: 44px;
-    height: 44px;
-    border-radius: 10px;
-    background-color: var(--primary);
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: var(--heading-font);
-    font-weight: 700;
-    font-size: 1.1rem;
-    margin-bottom: 18px;
-  }
-
-  .offer-card h3 {
-    font-size: 1.15rem;
-    margin-bottom: 8px;
-  }
-
-  .offer-card p {
-    font-size: 0.92rem;
-    opacity: 0.8;
-  }
-
-  /* About - modular split */
-  .about {
-    padding: 80px 24px;
-  }
-
-  .about-grid {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1.1fr;
-    gap: 48px;
-    align-items: center;
-  }
-
-  .about-grid img {
-    width: 100%;
-    height: 480px;
-    object-fit: cover;
-    border-radius: 16px;
-    box-shadow: 0 20px 40px rgba(43,45,66,0.12);
-  }
-
-  .about-content h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-  }
-
-  .about-content p {
-    font-size: 1.05rem;
-    margin-bottom: 20px;
-    max-width: 560px;
-  }
-
-  .hours-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background-color: rgba(230,57,70,0.08);
-    border: 1px solid rgba(230,57,70,0.25);
-    color: var(--primary);
-    font-weight: 700;
-    padding: 10px 18px;
-    border-radius: 999px;
-    font-size: 0.9rem;
-  }
-
-  /* Gallery / visit strip - modular grid */
-  .visit {
-    padding: 0 24px 80px 24px;
-  }
-
-  .visit-grid {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1.3fr 1fr;
-    gap: 24px;
-    align-items: stretch;
-  }
-
-  .visit-image img {
-    width: 100%;
-    height: 100%;
-    min-height: 360px;
-    object-fit: cover;
-    border-radius: 16px;
-    box-shadow: 0 20px 40px rgba(43,45,66,0.12);
-  }
-
-  .visit-cta {
-    background-color: var(--primary);
-    border-radius: 16px;
-    padding: 40px;
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  .visit-cta h2 {
-    color: #fff;
-    font-size: 1.8rem;
-    margin-bottom: 16px;
-  }
-
-  .visit-cta p {
-    margin-bottom: 26px;
-    opacity: 0.95;
-  }
-
-  .visit-cta .btn-white {
     display: inline-block;
-    background-color: #fff;
-    color: var(--primary);
-    text-decoration: none;
-    font-weight: 700;
-    padding: 14px 26px;
-    border-radius: 8px;
-    font-size: 0.95rem;
-    text-align: center;
-    width: fit-content;
+    border-bottom: 3px solid var(--primary);
+    padding-bottom: 8px;
   }
 
-  /* Contact */
-  .contact {
-    background-color: #fff;
-    padding: 80px 24px;
-    border-top: 1px solid rgba(43,45,66,0.06);
-  }
-
-  .contact-grid {
-    max-width: 1200px;
-    margin: 0 auto;
+  .gallery-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 24px;
   }
 
-  .contact-card {
-    background-color: var(--bg);
-    border: 1px solid rgba(43,45,66,0.08);
-    border-radius: 14px;
-    padding: 30px;
+  .gallery-grid figure {
+    margin: 0;
+    background: #fff;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  }
+
+  .gallery-grid img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .gallery-grid figcaption {
+    padding: 14px;
+    font-size: 0.95rem;
     text-align: center;
-  }
-
-  .contact-card h3 {
-    font-size: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--primary);
-    margin-bottom: 14px;
-  }
-
-  .contact-card p, .contact-card a {
-    font-size: 1.05rem;
-    text-decoration: none;
     color: var(--text);
     font-weight: 600;
   }
 
-  /* Footer */
-  footer.site-footer {
-    background-color: var(--text);
-    color: #fff;
-    text-align: center;
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .info-card {
+    background-color: #FFFDF5;
+    border: 1px solid var(--primary);
+    border-radius: 6px;
     padding: 24px;
+    text-align: center;
+  }
+
+  .info-card h3 {
+    color: var(--primary);
+    margin-bottom: 10px;
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 24px;
+    background-color: #FFFDF5;
+    border-radius: 6px;
+    padding: 40px;
+  }
+
+  .contact-details {
+    grid-column: 1 / span 6;
+  }
+
+  .contact-cta {
+    grid-column: 7 / span 6;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .contact-details p {
+    margin: 6px 0;
+    font-size: 1.05rem;
+  }
+
+  .contact-details strong {
+    color: var(--primary);
+  }
+
+  footer.site-footer {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 24px 0;
+    border-top: 3px solid var(--primary);
     font-size: 0.85rem;
+    color: var(--text);
   }
 
-  footer.site-footer a {
-    color: #fff;
-    text-decoration: underline;
-  }
-
-  @media (max-width: 900px) {
-    .hero-grid, .about-grid, .visit-grid {
+  @media (max-width: 800px) {
+    .hero-text, .hero-image, .about-text, .about-image, .contact-details, .contact-cta {
+      grid-column: 1 / -1;
+    }
+    .gallery-grid, .info-grid {
       grid-template-columns: 1fr;
     }
-    .offerings-grid, .contact-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-    .about-grid img {
-      height: 320px;
-    }
-    .hero-image-wrap img {
-      height: 300px;
-    }
-  }
-
-  @media (max-width: 560px) {
-    nav.primary-nav ul {
-      gap: 16px;
-    }
-    .hero-content h1 {
-      font-size: 2.1rem;
-    }
-    .offerings-grid, .contact-grid {
-      grid-template-columns: 1fr;
+    nav.top-nav a {
+      margin-left: 12px;
     }
   }
 </style>
 </head>
 <body>
 
-<header class="site-header">
-  <div class="nav-wrap">
-    <a href="#top" class="logo">Joyce's with Best Wishes</a>
-    <nav class="primary-nav">
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#offerings">What We Offer</a></li>
-        <li><a href="#visit">Visit</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
+<header class="top-bar">
+  <div class="site-grid">
+    <div class="top-bar-inner">
+      <div class="brand">Joyce's <span>with Best Wishes</span></div>
+      <nav class="top-nav">
+        <a href="#about">About</a>
+        <a href="#products">Products</a>
+        <a href="#hours">Hours</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
   </div>
 </header>
 
-<main id="top">
+<main class="site-grid">
 
   <section class="hero">
-    <div class="hero-grid">
-      <div class="hero-content">
-        <span class="eyebrow">High Street, Lingfield</span>
-        <h1>Joyce's with Best Wishes</h1>
-        <p class="tagline">Handmade chocolates, thoughtful gifts &amp; greeting cards in Lingfield</p>
-        <a class="btn" href="#contact">Visit us or call to order</a>
+    <div class="hero-text">
+      <h1>Joyce's with Best Wishes</h1>
+      <p class="tagline">Handmade chocolates, thoughtful gifts & greeting cards in Lingfield</p>
+      <p>Welcome to Joyce's with Best Wishes, your local convenience store on High Street in Lingfield. We specialise in beautiful handmade chocolates, carefully curated gifts, and a wonderful selection of cards perfect for any occasion.</p>
+      <a class="btn" href="#contact">Visit or Call Us</a>
+    </div>
+    <div class="hero-image">
+      <img src="https://images.pexels.com/photos/34357798/pexels-photo-34357798.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Handmade chocolates and gifts display at Joyce's with Best Wishes">
+    </div>
+  </section>
+
+  <section id="about" class="divider-top">
+    <div class="about-grid">
+      <div class="about-text">
+        <div class="section-heading" style="text-align:left;">
+          <h2>About Us</h2>
+        </div>
+        <p>Welcome to Joyce's with Best Wishes, your local convenience store on High Street in Lingfield. We specialise in beautiful handmade chocolates, carefully curated gifts, and a wonderful selection of cards perfect for any occasion. Whether you're looking for a special treat, a corporate gift, or something thoughtful for a loved one, our team takes pride in helping you find exactly what you need. We also offer delivery for your convenience. Visit us Tuesday to Saturday to explore our full range.</p>
       </div>
-      <div class="hero-image-wrap">
-        <img src="https://images.pexels.com/photos/34357798/pexels-photo-34357798.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Handmade chocolates and gifts at Joyce's with Best Wishes">
+      <div class="about-image">
+        <img src="https://images.pexels.com/photos/18925020/pexels-photo-18925020.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Local community moment at Joyce's with Best Wishes convenience store">
       </div>
     </div>
   </section>
 
-  <section class="offerings" id="offerings">
+  <section id="products" class="divider-top">
     <div class="section-heading">
       <h2>What We Offer</h2>
-      <p>A carefully curated selection to help you find exactly what you need, whatever the occasion.</p>
     </div>
-    <div class="offerings-grid">
-      <div class="offer-card">
-        <div class="mark">C</div>
-        <h3>Handmade Chocolates</h3>
-        <p>Beautiful, handmade chocolates for a special treat or gift.</p>
-      </div>
-      <div class="offer-card">
-        <div class="mark">G</div>
-        <h3>Curated Gifts</h3>
-        <p>Thoughtful gifts for loved ones, corporate gifting and every occasion.</p>
-      </div>
-      <div class="offer-card">
-        <div class="mark">C</div>
-        <h3>Greeting Cards</h3>
-        <p>A wonderful selection of cards for any occasion.</p>
-      </div>
-      <div class="offer-card">
-        <div class="mark">D</div>
-        <h3>Delivery</h3>
-        <p>We offer delivery for your convenience — just get in touch.</p>
-      </div>
+    <div class="gallery-grid">
+      <figure>
+        <img src="https://images.pexels.com/photos/34357798/pexels-photo-34357798.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Handmade chocolates for sale">
+        <figcaption>Handmade Chocolates</figcaption>
+      </figure>
+      <figure>
+        <img src="https://images.pexels.com/photos/64613/pexels-photo-64613.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Curated gifts and everyday convenience items">
+        <figcaption>Curated Gifts</figcaption>
+      </figure>
+      <figure>
+        <img src="https://images.pexels.com/photos/18925020/pexels-photo-18925020.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Greeting cards selection and community moments">
+        <figcaption>Greeting Cards</figcaption>
+      </figure>
     </div>
   </section>
 
-  <section class="about" id="about">
-    <div class="about-grid">
-      <img src="https://images.pexels.com/photos/18925020/pexels-photo-18925020.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Inside Joyce's with Best Wishes convenience store in Lingfield">
-      <div class="about-content">
-        <h2>About Joyce's with Best Wishes</h2>
-        <p>Welcome to Joyce's with Best Wishes, your local convenience store on High Street in Lingfield. We specialise in beautiful handmade chocolates, carefully curated gifts, and a wonderful selection of cards perfect for any occasion.</p>
-        <p>Whether you're looking for a special treat, a corporate gift, or something thoughtful for a loved one, our team takes pride in helping you find exactly what you need. We also offer delivery for your convenience.</p>
-        <span class="hours-badge">Open Tuesday – Saturday</span>
-      </div>
-    </div>
-  </section>
-
-  <section class="visit" id="visit">
-    <div class="visit-grid">
-      <div class="visit-image">
-        <img src="https://images.pexels.com/photos/33253022/pexels-photo-33253022.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Friendly service at Joyce's with Best Wishes in Lingfield">
-      </div>
-      <div class="visit-cta">
-        <h2>Ready to Order?</h2>
-        <p>Visit us at 30 High St, Lingfield RH7 6AA or call 01342 832428 to place an order</p>
-        <a class="btn-white" href="tel:01342832428">Call 01342 832428</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="contact" id="contact">
+  <section id="hours" class="divider-top">
     <div class="section-heading">
-      <h2>Find &amp; Contact Us</h2>
-      <p>Visit us Tuesday to Saturday to explore our full range.</p>
+      <h2>Store Information</h2>
+    </div>
+    <div class="info-grid">
+      <div class="info-card">
+        <h3>Opening Days</h3>
+        <p>Open Tuesday to Saturday. Visit us to explore our full range.</p>
+      </div>
+      <div class="info-card">
+        <h3>Delivery</h3>
+        <p>We offer delivery for your convenience — perfect for gifts and special occasions.</p>
+      </div>
+      <div class="info-card">
+        <h3>Perfect For</h3>
+        <p>Special treats, corporate gifts, and thoughtful presents for loved ones.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="divider-top">
+    <div class="section-heading">
+      <h2>Get In Touch</h2>
     </div>
     <div class="contact-grid">
-      <div class="contact-card">
-        <h3>Address</h3>
-        <p>30 High St, Lingfield RH7 6AA, UK</p>
+      <div class="contact-details">
+        <p><strong>Address:</strong> 30 High St, Lingfield RH7 6AA, UK</p>
+        <p><strong>Phone:</strong> 01342 832428</p>
+        <p><strong>Email:</strong> joycesbestwishes@aol.com</p>
+        <p><strong>Hours:</strong> Tuesday to Saturday</p>
       </div>
-      <div class="contact-card">
-        <h3>Phone</h3>
-        <a href="tel:01342832428">01342 832428</a>
-      </div>
-      <div class="contact-card">
-        <h3>Email</h3>
-        <a href="mailto:joycesbestwishes@aol.com">joycesbestwishes@aol.com</a>
+      <div class="contact-cta">
+        <p>Visit us at 30 High St, Lingfield RH7 6AA or call 01342 832428 to place an order</p>
+        <a class="btn" href="tel:01342832428">Call 01342 832428</a>
       </div>
     </div>
   </section>
 
-</main>
+  <footer class="site-footer">
+    Speculative demo site built by STRIDE — stridetechnology.co.uk
+  </footer>
 
-<footer class="site-footer">
-  <p>Speculative demo site built by STRIDE — <a href="https://stridetechnology.co.uk" target="_blank" rel="noopener">stridetechnology.co.uk</a></p>
-</footer>
+</main>
 
 </body>
 </html>
